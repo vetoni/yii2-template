@@ -7,31 +7,18 @@ use Exception;
 
 /**
  * Trait ModuleTrait
- * @package common\modules\image
+ * @package common\modules\file\traits
  *
  * @property Module $module
  */
 trait ModuleTrait
 {
     /**
-     * @var Module
-     */
-    private $_module;
-
-    /**
-     * @return Module
+     * @return Module|\yii\base\Module
      * @throws Exception
      */
     protected function getModule()
     {
-        if ($this->_module == null) {
-            $this->_module = \Yii::$app->getModule('file');
-        }
-
-        if(!$this->_module){
-            throw new Exception("\n\n\n\n\nFile module not found, may be you didn't add it to your config?\n\n\n\n");
-        }
-
-        return $this->_module;
+        return \Yii::$app->getModule('file');
     }
 }

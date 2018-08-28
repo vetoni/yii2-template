@@ -3,18 +3,21 @@
 namespace common\modules\user\traits;
 
 use common\modules\user\Module;
+use Exception;
 
 /**
  * Trait ModuleTrait
- * @property-read Module $module
- * @package dektrium\user\traits
+ * @package common\modules\user\traits
+ *
+ * @property Module $module
  */
 trait ModuleTrait
 {
     /**
-     * @return Module
+     * @return Module|\yii\base\Module
+     * @throws Exception
      */
-    public function getModule()
+    protected function getModule()
     {
         return \Yii::$app->getModule('user');
     }
