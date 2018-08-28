@@ -20,7 +20,6 @@ return [
                 '@vendor/pheme/yii2-settings/migrations',
                 '@common/modules/user/migrations',
                 '@common/modules/file/migrations',
-                '@common/modules/catalog/migrations',
             ]
         ],
     ],
