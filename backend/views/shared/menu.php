@@ -8,23 +8,6 @@
                 'items' => [
 
                     [
-                        'label' => Yii::t('backend', 'Каталог'),
-                        'icon' => 'server',
-                        'items' => [
-                            [
-                                'label' => Yii::t('backend', 'Категории'),
-                                'url' => ['/catalog/category-management/index'],
-                                'scope' => ['/catalog/category-management/index', '/catalog/category-management/update', '/catalog/category-management/create']
-                            ],
-                            [
-                                'label' => Yii::t('backend', 'Товары'),
-                                'url' => ['/catalog/product-management/index'],
-                                'scope' => ['/catalog/product-management/index', '/catalog/product-management/update', '/catalog/product-management/create']
-                            ],
-                        ],
-                    ],
-
-                    [
                         'label' => Yii::t('backend', 'Пользователи'),
                         'icon' => 'user',
                         'items' => [
