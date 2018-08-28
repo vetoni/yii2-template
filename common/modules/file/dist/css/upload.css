@@ -1,0 +1,4 @@
+.file-loading:before {
+    content: '' !important;
+    background: none !important;
+}
