@@ -37,7 +37,6 @@ class FileController extends Controller
     /**
      * @param $id
      * @return string
-     * @throws \Throwable
      */
     public function actionDelete($id)
     {

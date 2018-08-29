@@ -57,7 +57,6 @@ class FileAttachmentsBehavior extends Behavior
      * @param $absolutePath
      * @param null $originalName
      * @return bool|File
-     * @throws Exception
      * @throws \Exception
      */
     public function attachFile($attribute, $absolutePath, $originalName = null)
@@ -104,6 +103,7 @@ class FileAttachmentsBehavior extends Behavior
         $file->name = $originalName;
         $file->mime_type = BaseFileHelper::getMimeType($newAbsolutePath);
         $file->size = filesize($newAbsolutePath);
+        $file->sort_group = $file->model . '_' . $file->attribute . '_' . $file->item_id;
         $file->extension = $extension;
 
         if ($file->getIsImage()) {
@@ -237,7 +237,6 @@ class FileAttachmentsBehavior extends Behavior
 
     /**
      * @return void
-     * @throws \Throwable
      */
     public function saveUploads()
     {
@@ -267,7 +266,6 @@ class FileAttachmentsBehavior extends Behavior
 
     /**
      * @return void
-     * @throws \Throwable
      */
     public function removeFiles()
     {
@@ -281,7 +279,6 @@ class FileAttachmentsBehavior extends Behavior
 
     /**
      * @param array $ids
-     * @throws \Throwable
      */
     public function removeFilesByIds($ids)
     {

@@ -3,13 +3,13 @@
 namespace common\modules\file\models;
 
 use common\modules\file\traits\ModuleTrait;
+use sjaakp\sortable\Sortable;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\helpers\BaseFileHelper;
 use yii\helpers\StringHelper;
 use yii\imagine\Image;
-use yii2tech\ar\position\PositionBehavior;
 
 /**
  * Class File
@@ -23,6 +23,7 @@ use yii2tech\ar\position\PositionBehavior;
  * @property string $name
  * @property string $extension
  * @property string $mime_type
+ * @property string $sort_group
  * @property integer $size
  * @property integer $image_width
  * @property integer $image_height
@@ -51,13 +52,8 @@ class File extends ActiveRecord
     {
         return [
             [
-                'class' => PositionBehavior::class,
-                'positionAttribute' => 'sort',
-                'groupAttributes' => [
-                    'model',
-                    'attribute',
-                    'item_id'
-                ],
+                'class' => Sortable::class,
+                'orderAttribute' => ['sort_group' => 'sort'],
             ],
         ];
     }
