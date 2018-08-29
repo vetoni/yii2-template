@@ -3,8 +3,9 @@
 namespace common\modules\file\models;
 
 use common\modules\file\traits\ModuleTrait;
-use sjaakp\sortable\Sortable;
+use himiklab\sortablegrid\SortableGridBehavior;
 use Yii;
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\helpers\BaseFileHelper;
@@ -23,7 +24,6 @@ use yii\imagine\Image;
  * @property string $name
  * @property string $extension
  * @property string $mime_type
- * @property string $sort_group
  * @property integer $size
  * @property integer $image_width
  * @property integer $image_height
@@ -51,9 +51,12 @@ class File extends ActiveRecord
     public function behaviors()
     {
         return [
-            [
-                'class' => Sortable::class,
-                'orderAttribute' => ['sort_group' => 'sort'],
+            'sort' =>[
+                'class' => SortableGridBehavior::class,
+                'sortableAttribute' => 'sort',
+                'scope' => function (ActiveQuery $query) {
+                    $query->andWhere(['model' => $this->model, 'attribute' => $this->attribute, 'item_id' =>$this->item_id]);
+                },
             ],
         ];
     }

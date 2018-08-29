@@ -26,7 +26,6 @@ class m171209_154811_add_file_table extends Migration
             'image_width' => $this->integer(),
             'image_height' => $this->integer(),
             'sort' => $this->integer()->notNull(),
-            'sort_group' => $this->string()->notNull(),
         ]);
 
         $this->createIndex('file_model_attribute_item_id', '{{%file}}', ['model', 'attribute', 'item_id']);

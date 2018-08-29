@@ -15,7 +15,7 @@
         "yiisoft/yii2-imagine": "^2.1",
         "zxbodya/yii2-elfinder": "dev-master",
         "zxbodya/yii2-tinymce": "dev-master",
-        "sjaakp/yii2-sortable-behavior": "*"
+        "himiklab/yii2-sortable-grid-view-widget" : "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

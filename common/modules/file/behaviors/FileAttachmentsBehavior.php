@@ -103,7 +103,6 @@ class FileAttachmentsBehavior extends Behavior
         $file->name = $originalName;
         $file->mime_type = BaseFileHelper::getMimeType($newAbsolutePath);
         $file->size = filesize($newAbsolutePath);
-        $file->sort_group = $file->model . '_' . $file->attribute . '_' . $file->item_id;
         $file->extension = $extension;
 
         if ($file->getIsImage()) {
